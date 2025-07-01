@@ -1,0 +1,11 @@
+.error-container {
+  text-align: center;
+  padding: 2rem;
+}
+.error-container img {
+  width: 200px;
+}
+.error-container button {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+}
