@@ -1,0 +1,126 @@
+/* src/styles/Tarea.css */
+
+.tarea-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Espacio entre los elementos */
+  background-color: #f9f9f9;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 12px 15px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.tarea-item.completed {
+  background-color: #e6ffe6; /* Fondo más claro para tareas completadas */
+  border-color: #a3e6a3; /* Borde verde para completadas */
+  text-decoration: line-through; /* Tachado para tareas completadas */
+  color: #888888; /* Color de texto más tenue */
+}
+
+.tarea-checkbox {
+  margin-right: 15px;
+  min-width: 20px; /* Asegura un ancho mínimo para el checkbox */
+  height: 20px;
+  cursor: pointer;
+  accent-color: #28a745; /* Color del checkbox */
+}
+
+.tarea-texto {
+  flex-grow: 1; /* Permite que el texto ocupe el espacio disponible */
+  font-size: 1.1em;
+  color: #333333;
+  word-break: break-word; /* Rompe palabras largas para evitar desbordamiento */
+  cursor: pointer; /* Indica que es editable */
+  padding: 5px 0; /* Pequeño padding para mejor clic */
+}
+
+.tarea-item.completed .tarea-texto {
+  color: #888888;
+}
+
+.tarea-input-editar {
+  flex-grow: 1;
+  padding: 5px 8px;
+  border: 1px solid #007bff;
+  border-radius: 5px;
+  font-size: 1.1em;
+  margin-right: 10px;
+}
+
+.tarea-acciones {
+  display: flex;
+  gap: 8px; /* Espacio entre los botones */
+  margin-left: 15px; /* Espacio a la izquierda de los botones de acción */
+}
+
+.tarea-boton-eliminar,
+.tarea-boton-editar,
+.tarea-boton-guardar,
+.tarea-boton-cancelar {
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 0.9em;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.tarea-boton-eliminar {
+  background-color: #dc3545; /* Rojo para eliminar */
+}
+
+.tarea-boton-eliminar:hover {
+  background-color: #c82333;
+  transform: translateY(-1px);
+}
+
+.tarea-boton-eliminar:active {
+  background-color: #bd2130;
+  transform: translateY(0);
+}
+
+.tarea-boton-editar {
+  background-color: #007bff; /* Azul para editar */
+}
+
+.tarea-boton-editar:hover {
+  background-color: #0056b3;
+  transform: translateY(-1px);
+}
+
+.tarea-boton-editar:active {
+  background-color: #004085;
+  transform: translateY(0);
+}
+
+.tarea-boton-guardar {
+  background-color: #28a745; /* Verde para guardar */
+}
+
+.tarea-boton-guardar:hover {
+  background-color: #218838;
+  transform: translateY(-1px);
+}
+
+.tarea-boton-guardar:active {
+  background-color: #1e7e34;
+  transform: translateY(0);
+}
+
+.tarea-boton-cancelar {
+  background-color: #6c757d; /* Gris para cancelar */
+}
+
+.tarea-boton-cancelar:hover {
+  background-color: #5a6268;
+  transform: translateY(-1px);
+}
+
+.tarea-boton-cancelar:active {
+  background-color: #495057;
+  transform: translateY(0);
+}

@@ -1,0 +1,46 @@
+/* src/styles/Clock.css */
+
+.clock-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  margin: 20px auto;
+  background-color: #e0f7fa; /* Un azul claro relajante */
+  border: 2px solid #00bcd4; /* Borde azul */
+  border-radius: 15px;
+  max-width: 450px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  font-family: "Inter", sans-serif; /* O la fuente que uses en tu proyecto */
+  color: #263238; /* Color de texto oscuro */
+  text-align: center;
+}
+
+.clock-container h2 {
+  font-size: 1.8em;
+  margin-bottom: 10px;
+  color: #00796b; /* Un verde azulado */
+}
+
+.clock-container p {
+  font-size: 1.1em;
+  margin-bottom: 15px;
+}
+
+.current-time {
+  font-size: 2.5em; /* Tamaño grande para la hora */
+  font-weight: bold;
+  color: #004d40; /* Un verde oscuro */
+  background-color: #b2ebf2; /* Fondo más claro para la hora */
+  padding: 15px 25px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+}
+
+.update-info {
+  font-size: 0.9em;
+  color: #546e7a;
+  margin-top: 10px;
+}

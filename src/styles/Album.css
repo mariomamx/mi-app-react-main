@@ -1,0 +1,70 @@
+/* src/styles/Album.css */
+
+.album-card {
+  background-color: #282c34; /* Fondo oscuro para la tarjeta */
+  border-radius: 12px; /* Bordes redondeados */
+  padding: 20px;
+  margin: 20px auto; /* Esto centra el div horizontalmente */
+  max-width: 600px; /* Aumentamos el ancho máximo para el diseño horizontal */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* Sombra más pronunciada */
+  font-family: "Inter", sans-serif; /* Fuente recomendada */
+  color: #f8f8f8; /* Color de texto claro */
+  text-align: left; /* Alineamos el texto a la izquierda en el diseño horizontal */
+  border: 1px solid rgba(255, 255, 255, 0.1); /* Borde sutil para definir la tarjeta */
+
+  /* --- CAMBIOS PARA HACER EL DIV HORIZONTAL --- */
+  display: flex; /* Usar flexbox */
+  flex-direction: row; /* ¡Ahora los elementos se apilan en fila! */
+  align-items: center; /* Centra los elementos verticalmente en la fila */
+  gap: 20px; /* Espacio entre la imagen y los detalles */
+  /* ------------------------------------------- */
+}
+
+.album-cover {
+  width: 80px; /* Tamaño más pequeño para la portada */
+  height: 80px; /* Asegura que sea cuadrada */
+  object-fit: cover; /* Recorta la imagen para que encaje si es necesario */
+  border-radius: 8px; /* Bordes redondeados para la portada */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  flex-shrink: 0; /* Evita que la imagen se encoja */
+}
+
+.album-details {
+  flex-grow: 1; /* Permite que los detalles ocupen el espacio restante */
+  width: auto; /* Ajuste para flexbox */
+}
+
+.song-title {
+  font-size: 1.6em;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #61dafb; /* Un color de acento azul claro */
+}
+
+.artist-name {
+  font-size: 1.1em;
+  color: #bbbbbb;
+  margin-bottom: 8px;
+}
+
+.album-info {
+  font-size: 0.95em;
+  color: #aaaaaa;
+  margin-bottom: 5px;
+}
+
+.genre {
+  font-size: 0.85em;
+  color: #888888;
+  padding: 4px 8px;
+  background-color: #3a3f47;
+  border-radius: 4px;
+  display: inline-block; /* Para que el fondo solo ocupe el texto */
+  margin-top: 10px;
+}
+
+/* Asegúrate de que la fuente Inter esté disponible globalmente,
+   generalmente se configura en el archivo CSS principal o en el HTML. */
+body {
+  font-family: "Inter", sans-serif;
+}
