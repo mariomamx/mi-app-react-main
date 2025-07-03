@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Formulario } from "./Formulario.jsx"; // Importamos el componente Formulario
 import Tarea from "./Tarea.jsx"; // Importamos el componente Tarea
-import styles from "../styles/Todo.module.css"; // ¡Importamos el CSS Module!
+import "../styles/Todo.css"; // ¡Ahora importamos el CSS global!
 
 /**
  * Componente principal Todo para gestionar la lista de tareas.
@@ -59,15 +59,15 @@ export const Todo = () => {
   };
 
   return (
-    // Contenedor principal de la aplicación To-Do, usando la clase del CSS Module
-    <div className={styles.container}>
+    // Contenedor principal de la aplicación To-Do, usando la clase directamente
+    <div className="container">
       {/* Componente Formulario para añadir nuevas tareas, le pasamos la función agregarTarea */}
       <Formulario agregarTarea={agregarTarea} />
 
       {/* Contenedor de la lista de tareas */}
-      <div className={styles.listaTareas}>
+      <div className="listaTareas">
         {tareas.length === 0 ? (
-          <p className={styles.noTareasMensaje}>
+          <p className="noTareasMensaje">
             No hay tareas pendientes. ¡Añade una!
           </p>
         ) : (
