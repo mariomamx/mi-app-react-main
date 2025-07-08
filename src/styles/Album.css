@@ -1,70 +1,133 @@
 /* src/styles/Album.css */
 
 .album-card {
-  background-color: #282c34; /* Fondo oscuro para la tarjeta */
-  border-radius: 12px; /* Bordes redondeados */
-  padding: 20px;
-  margin: 20px auto; /* Esto centra el div horizontalmente */
-  max-width: 600px; /* Aumentamos el ancho máximo para el diseño horizontal */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* Sombra más pronunciada */
-  font-family: "Inter", sans-serif; /* Fuente recomendada */
-  color: #f8f8f8; /* Color de texto claro */
-  text-align: left; /* Alineamos el texto a la izquierda en el diseño horizontal */
-  border: 1px solid rgba(255, 255, 255, 0.1); /* Borde sutil para definir la tarjeta */
+  background-color: #f8f8f8;
+  border-radius: 15px;
+  padding: 25px;
+  margin: 20px auto;
+  max-width: 650px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  font-family: "Inter", sans-serif;
+  color: #333333;
+  text-align: left;
+  border: 1px solid #e0e0e0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 30px;
+  transition: all 0.3s ease-in-out;
+  position: relative; /* Necesario para posicionar el icono de "me gusta" */
+}
 
-  /* --- CAMBIOS PARA HACER EL DIV HORIZONTAL --- */
-  display: flex; /* Usar flexbox */
-  flex-direction: row; /* ¡Ahora los elementos se apilan en fila! */
-  align-items: center; /* Centra los elementos verticalmente en la fila */
-  gap: 20px; /* Espacio entre la imagen y los detalles */
-  /* ------------------------------------------- */
+.album-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+/* Estilos para el contenedor del corazón y el contador */
+.like-container {
+  position: absolute; /* Posicionamiento absoluto dentro de .album-card */
+  bottom: 15px; /* ¡CAMBIO AQUÍ! Ajusta la distancia desde la parte inferior */
+  right: 15px; /* Mantiene la distancia desde la derecha */
+  display: flex;
+  align-items: center;
+  gap: 5px; /* Espacio entre el corazón y el número */
+  color: #e74c3c; /* Color del corazón (rojo) */
+  font-size: 0.9em; /* Tamaño de la fuente del contador */
+  font-weight: bold;
+  cursor: pointer; /* Indica que es clickeable */
+  transition: color 0.2s ease-in-out;
+}
+
+.like-container:hover .like-icon {
+  transform: scale(1.1); /* Ligeramente más grande al pasar el ratón */
+  color: #c0392b; /* Tono más oscuro de rojo al pasar el ratón */
+}
+
+.like-icon {
+  width: 20px; /* Tamaño del icono SVG */
+  height: 20px;
+  transition: transform 0.2s ease-in-out;
 }
 
 .album-cover {
-  width: 80px; /* Tamaño más pequeño para la portada */
-  height: 80px; /* Asegura que sea cuadrada */
-  object-fit: cover; /* Recorta la imagen para que encaje si es necesario */
-  border-radius: 8px; /* Bordes redondeados para la portada */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  flex-shrink: 0; /* Evita que la imagen se encoja */
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 5px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  flex-shrink: 0;
+  border: 1px solid rgba(255, 255, 255, 0.5);
 }
 
 .album-details {
-  flex-grow: 1; /* Permite que los detalles ocupen el espacio restante */
-  width: auto; /* Ajuste para flexbox */
+  flex-grow: 1;
+  width: auto;
 }
 
 .song-title {
-  font-size: 1.6em;
+  font-size: 1.2em;
   font-weight: bold;
-  margin-bottom: 5px;
-  color: #61dafb; /* Un color de acento azul claro */
+  margin-bottom: 8px;
+  color: #007bff;
 }
 
 .artist-name {
-  font-size: 1.1em;
-  color: #bbbbbb;
-  margin-bottom: 8px;
-}
-
-.album-info {
-  font-size: 0.95em;
-  color: #aaaaaa;
+  font-size: 1.2em;
+  color: #555555;
   margin-bottom: 5px;
 }
 
-.genre {
-  font-size: 0.85em;
-  color: #888888;
-  padding: 4px 8px;
-  background-color: #3a3f47;
-  border-radius: 4px;
-  display: inline-block; /* Para que el fondo solo ocupe el texto */
-  margin-top: 10px;
+.album-info {
+  font-size: 1em;
+  color: #777777;
+  margin-bottom: 10px;
 }
 
-/* Asegúrate de que la fuente Inter esté disponible globalmente,
-   generalmente se configura en el archivo CSS principal o en el HTML. */
+.genre {
+  font-size: 0.9em;
+  color: #ffffff;
+  padding: 6px 12px;
+  background-color: #6c757d;
+  border-radius: 6px;
+  display: inline-block;
+  margin-top: 5px;
+  letter-spacing: 0.5px;
+}
+
 body {
   font-family: "Inter", sans-serif;
+  background-color: #f0f2f5;
+}
+
+@media (max-width: 768px) {
+  .album-card {
+    flex-direction: column;
+    text-align: center;
+    max-width: 350px;
+    padding: 20px;
+    gap: 15px;
+  }
+
+  .album-cover {
+    width: 140px;
+    height: 140px;
+    margin-bottom: 15px;
+  }
+
+  .song-title {
+    font-size: 1.5em;
+  }
+
+  .artist-name {
+    font-size: 1em;
+  }
+
+  .album-info {
+    font-size: 0.9em;
+  }
+
+  .genre {
+    font-size: 0.8em;
+  }
 }

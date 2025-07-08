@@ -1,97 +1,36 @@
 /* src/styles/Formulario.css */
-
-.formulario-container {
+.formulario-tarea {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 30px; /* Más padding */
-  background: linear-gradient(
-    145deg,
-    #f0f0f0,
-    #ffffff
-  ); /* Fondo con gradiente suave */
-  border-radius: 20px; /* Bordes aún más redondeados */
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2); /* Sombra más grande y suave */
-  max-width: 420px; /* Ancho máximo aumentado */
-  margin: 50px auto; /* Centrar y añadir más margen vertical */
-  font-family: "Inter", sans-serif; /* Asegurar la fuente Inter */
-  border: 1px solid #e8e8e8; /* Borde más claro */
-  transition: all 0.3s ease-in-out; /* Transición para efectos de hover en el contenedor */
-}
-
-.formulario-container:hover {
-  transform: translateY(-5px); /* Pequeño levantamiento al pasar el ratón */
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25); /* Sombra más intensa al pasar el ratón */
-}
-
-.formulario-titulo {
-  font-size: 2.8em; /* Título más grande */
-  font-weight: 800; /* Extra negrita */
-  color: #2c3e50; /* Color de texto oscuro y elegante */
-  margin-bottom: 30px; /* Más espacio debajo del título */
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); /* Sombra de texto más pronunciada */
-  letter-spacing: 1px; /* Espaciado entre letras */
+  gap: 10px;
+  margin-bottom: 20px;
+  width: 100%;
 }
 
 .formulario-input {
-  width: 100%;
-  padding: 15px 20px; /* Más padding */
-  border: 2px solid #dcdcdc; /* Borde más definido */
-  border-radius: 12px; /* Bordes redondeados */
-  margin-bottom: 25px; /* Más espacio debajo del input */
-  font-size: 1.15em; /* Fuente más grande */
-  color: #444444;
-  background-color: #fcfcfc; /* Fondo ligeramente diferente para el input */
-  transition: all 0.3s ease-in-out; /* Transición suave para el foco */
-}
-
-.formulario-input::placeholder {
-  color: #a0a0a0; /* Color del placeholder */
-  font-style: italic; /* Placeholder en cursiva */
+  flex-grow: 1;
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1em;
 }
 
 .formulario-input:focus {
   outline: none;
-  border-color: #007bff; /* Borde azul brillante al enfocar */
-  box-shadow: 0 0 0 4px rgba(0, 123, 255, 0.25); /* Sombra de enfoque más vibrante */
-  background-color: #ffffff; /* Fondo blanco puro al enfocar */
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
 }
 
 .formulario-boton {
-  width: 100%;
-  background: linear-gradient(
-    45deg,
-    #007bff,
-    #0056b3
-  ); /* Gradiente azul para el botón */
-  color: #ffffff; /* Texto blanco */
-  padding: 15px 25px; /* Más padding */
+  background-color: #007bff;
+  color: white;
   border: none;
-  border-radius: 12px; /* Bordes redondeados */
-  font-size: 1.2em; /* Fuente más grande */
-  font-weight: 700; /* Más negrita */
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-size: 1em;
   cursor: pointer;
-  transition: all 0.3s ease; /* Transiciones suaves para todos los efectos */
-  box-shadow: 0 6px 15px rgba(0, 123, 255, 0.3); /* Sombra para el botón */
-  letter-spacing: 0.5px; /* Espaciado entre letras */
+  transition: background-color 0.2s ease;
 }
 
 .formulario-boton:hover {
-  background: linear-gradient(
-    45deg,
-    #0056b3,
-    #004085
-  ); /* Gradiente más oscuro al pasar el ratón */
-  transform: translateY(-3px); /* Levantamiento más pronunciado */
-  box-shadow: 0 8px 20px rgba(0, 123, 255, 0.4); /* Sombra más grande al pasar el ratón */
-}
-
-.formulario-boton:active {
-  background: linear-gradient(
-    45deg,
-    #004085,
-    #002a5c
-  ); /* Gradiente aún más oscuro al hacer clic */
-  transform: translateY(0); /* Vuelve a la posición original */
-  box-shadow: 0 3px 8px rgba(0, 123, 255, 0.2); /* Sombra más pequeña al hacer clic */
+  background-color: #0056b3;
 }

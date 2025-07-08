@@ -1,12 +1,14 @@
-import { Routes, Route, Link } from "react-router-dom";
+// src/App.jsx
+import { Routes, Route } from "react-router-dom";
 import Error404 from "./components/Error404.jsx";
 import ProfileCard from "./components/ProfileCard.jsx";
 import ProductCard from "./components/ProductCard.jsx";
-import QrCard from "./components/QrCard.jsx";
+import DynamicQrCard from "./components/DynamicQrCard.jsx";
 import OnionHater from "./components/OnionHater.jsx";
 import Clock from "./components/Clock.jsx";
 import Album from "./components/Album.jsx";
-import { Todo } from "./components/Todo.jsx"; // ¡Ahora importamos el componente Todo!
+import { NavBar } from "./components/NavBar.jsx";
+import { Todo } from "./components/Todo.jsx";
 import "./App.css";
 
 /**
@@ -17,17 +19,8 @@ function App() {
   return (
     // Contenedor principal de la aplicación
     <div className="app">
-      {/* Barra de navegación */}
-      <nav className="navbar">
-        <Link to="/error">Error 404</Link>
-        <Link to="/perfil">Perfil</Link>
-        <Link to="/producto">Producto</Link>
-        <Link to="/qr">QR</Link>
-        <Link to="/cebolla">¡Odio la Cebolla!</Link>
-        <Link to="/reloj">Reloj</Link> {/* Corregido: </Kink> a </Link> */}
-        <Link to="/album">Álbum</Link>
-        <Link to="/todo">Lista de Tareas</Link> {/* Nuevo enlace para la lista de tareas */}
-      </nav>
+      {/* Barra de navegación - ahora es un componente separado */}
+      <NavBar />
 
       {/* Contenido principal de la aplicación, donde se renderizan los componentes de las rutas */}
       <main className="main-content">
@@ -35,7 +28,29 @@ function App() {
           <Route path="/error" element={<Error404 />} />
           <Route path="/perfil" element={<ProfileCard />} />
           <Route path="/producto" element={<ProductCard />} />
-          <Route path="/qr" element={<QrCard />} />
+
+          {/* Rutas para DynamicQrCard, ahora tu único componente de tarjeta QR */}
+          <Route
+            path="/qr" // Puedes usar solo /qr si es el único
+            element={
+              <DynamicQrCard
+                name="QR para Google"
+                texto="Escanea este código para visitar Google."
+                linkUrl="https://www.google.com/"
+              />
+            }
+          />
+          <Route
+            path="/qr-youtube"
+            element={
+              <DynamicQrCard
+                name="QR para YouTube"
+                texto="Encuentra videos interesantes escaneando aquí."
+                linkUrl="https://www.youtube.com/"
+              />
+            }
+          />
+
           <Route path="/cebolla" element={<OnionHater />} />
           <Route path="/reloj" element={<Clock />} />
           <Route
@@ -51,7 +66,7 @@ function App() {
               />
             }
           />
-          <Route path="/todo" element={<Todo />} /> {/* Nueva ruta para el componente Todo */}
+          <Route path="/todo" element={<Todo />} />
           <Route path="*" element={<Error404 />} />
         </Routes>
       </main>

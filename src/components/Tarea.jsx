@@ -1,14 +1,18 @@
+// src/components/Tarea.jsx
 import React, { useState } from "react";
-import "../styles/Tarea.css"; // Importamos el CSS para Tarea
+import "../styles/Tarea.css"; // ¡Asegúrate de que este archivo sea 'Tarea.css' y no 'Tarea.module.css' en tu carpeta styles!
 
 /**
- * Componente Tarea para mostrar una tarea individual en la lista To-Do.
- * Permite marcar la tarea como completada, eliminarla y editar su texto.
+ * Componente Tarea para mostrar y gestionar una tarea individual en la lista To-Do.
+ *
+ * Este componente maneja su propio estado de edición y se comunica con el componente padre
+ * (probablemente Todo.jsx) para actualizar, eliminar o cambiar el estado de completado de la tarea.
+ *
  * @param {object} props - Las propiedades del componente.
  * @param {object} props.tarea - El objeto de la tarea con id, texto y estado 'completed'.
- * @param {function} props.onToggleComplete - Función para cambiar el estado de completado de la tarea.
- * @param {function} props.onDelete - Función para eliminar la tarea.
- * @param {function} props.onUpdate - Función para actualizar el texto de la tarea.
+ * @param {function} props.onToggleComplete - Callback para cambiar el estado de completado.
+ * @param {function} props.onDelete - Callback para eliminar la tarea.
+ * @param {function} props.onUpdate - Callback para actualizar el texto de la tarea.
  */
 const Tarea = ({ tarea, onToggleComplete, onDelete, onUpdate }) => {
   const [isEditing, setIsEditing] = useState(false);
@@ -26,43 +30,43 @@ const Tarea = ({ tarea, onToggleComplete, onDelete, onUpdate }) => {
   };
 
   const handleCancelEdit = () => {
-    setEditedText(tarea.texto); // Revertir a texto original
+    setEditedText(tarea.texto);
     setIsEditing(false);
   };
 
+  const handleInputKeyPress = (e) => {
+    if (e.key === "Enter") {
+      handleSave();
+    } else if (e.key === "Escape") {
+      handleCancelEdit();
+    }
+  };
+
   return (
-    // Contenedor de la tarea individual
     <div className={`tarea-item ${tarea.completed ? "completed" : ""}`}>
-      {/* Checkbox para marcar/desmarcar la tarea como completada */}
       <input
         type="checkbox"
         checked={tarea.completed}
         onChange={() => onToggleComplete(tarea.id)}
         className="tarea-checkbox"
       />
-      {/* Contenido de la tarea: input si está editando, párrafo si no */}
+      
       {isEditing ? (
         <input
           type="text"
           value={editedText}
           onChange={(e) => setEditedText(e.target.value)}
-          onBlur={handleSave} // Guardar al perder el foco
-          onKeyPress={(e) => {
-            if (e.key === "Enter") {
-              handleSave();
-            } else if (e.key === "Escape") {
-              handleCancelEdit();
-            }
-          }}
+          onBlur={handleSave}
+          onKeyPress={handleInputKeyPress}
           className="tarea-input-editar"
-          autoFocus // Enfocar automáticamente al entrar en modo edición
+          autoFocus
         />
       ) : (
         <p className="tarea-texto" onDoubleClick={handleEdit}>
           {tarea.texto}
         </p>
       )}
-      {/* Botones de acción */}
+
       <div className="tarea-acciones">
         {isEditing ? (
           <>
@@ -91,4 +95,4 @@ const Tarea = ({ tarea, onToggleComplete, onDelete, onUpdate }) => {
   );
 };
 
-export default Tarea;
+export default Tarea; // Asegúrate de que tenga export default

@@ -1,6 +1,5 @@
-import React from "react";
-// No necesitamos importar Album.css directamente aquí si usamos Tailwind CSS para la mayoría de los estilos
-// import "../styles/Album.css"; // Comentado porque usaremos clases de Tailwind
+import React, { useState } from "react"; // Importa useState para manejar el estado del contador
+import "../styles/Album.css"; // Importa los estilos CSS
 
 /**
  * Componente Album para mostrar la información de un álbum musical.
@@ -15,40 +14,61 @@ import React from "react";
  * @param {string} props.genre - Género musical del álbum.
  */
 function Album({ albumCover, songTitle, artistName, albumName, year, genre }) {
+  // Estado para el contador de "me gusta"
+  const [likes, setLikes] = useState(0); // Inicializa los likes en 0
+
+  // Función para incrementar los likes
+  const handleLikeClick = () => {
+    setLikes(prevLikes => prevLikes + 1);
+  };
+
   // Usamos la imagen proporcionada o un placeholder si no hay imagen
   const imageUrl =
     albumCover || "https://placehold.co/150x150/cccccc/000000?text=No+Cover";
 
   return (
-    // Contenedor principal de la tarjeta del álbum
-    // Flexbox para alinear la imagen y los detalles, con esquinas redondeadas y sombra
-    <div className="flex flex-col sm:flex-row items-center bg-white rounded-lg shadow-lg p-4 m-4 max-w-sm sm:max-w-md mx-auto overflow-hidden">
+    // Contenedor principal de la tarjeta del álbum.
+    <div className="album-card">
+      {/* Contenedor para el icono de corazón y el contador */}
+      {/* Posicionaremos esto a la izquierda con CSS */}
+      <div className="like-container">
+        {/* Icono de corazón. Puedes usar un SVG o un icono de librería como Font Awesome */}
+        {/* Para Font Awesome, necesitarías añadir la librería en tu index.html o en tu proyecto */}
+        {/* Ejemplo de Font Awesome: <i className="fas fa-heart like-icon" onClick={handleLikeClick}></i> */}
+        {/* Usaremos un SVG simple por defecto para evitar dependencias externas */}
+        <svg
+          className="like-icon"
+          onClick={handleLikeClick}
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+        >
+          <path d="M12 21.35l-1.84-1.84C5.46 16.14 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.46 7.64-8.16 10.9L12 21.35z"/>
+        </svg>
+        <span className="like-count">{likes}</span>
+      </div>
+
       {/* Imagen de la portada del álbum */}
       <img
         src={imageUrl}
         alt={`${albumName} cover`}
-        className="w-32 h-32 sm:w-40 sm:h-40 rounded-md object-cover mr-0 sm:mr-4 mb-4 sm:mb-0 shadow-md"
-        // Manejo de error para la imagen: si la imagen no carga, muestra un placeholder
+        className="album-cover"
         onError={(e) => {
-          e.target.onerror = null; // Evita bucles infinitos de error
+          e.target.onerror = null;
           e.target.src =
-            "https://placehold.co/150x150/cccccc/000000?text=Error+Loading"; // Placeholder genérico en caso de error
+            "https://placehold.co/150x150/cccccc/000000?text=Error+Loading";
         }}
       />
-      {/* Detalles del álbum */}
-      <div className="flex flex-col text-center sm:text-left">
-        {/* Título de la canción o elemento principal */}
-        <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-1">
+      {/* Contenedor de los detalles del álbum (texto) */}
+      <div className="album-details">
+        <h3 className="song-title">
           {songTitle}
         </h3>
-        {/* Nombre del artista */}
-        <p className="text-md sm:text-lg text-gray-700 mb-1">{artistName}</p>
-        {/* Nombre del álbum y año */}
-        <p className="text-sm sm:text-base text-gray-600 mb-1">
+        <p className="artist-name">{artistName}</p>
+        <p className="album-info">
           {albumName} ({year})
         </p>
-        {/* Género musical */}
-        <p className="text-sm sm:text-base text-gray-500">{genre}</p>
+        <p className="genre">{genre}</p>
       </div>
     </div>
   );

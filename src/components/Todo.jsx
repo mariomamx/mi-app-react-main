@@ -1,87 +1,57 @@
 import React, { useState } from "react";
-import { Formulario } from "./Formulario.jsx"; // Importamos el componente Formulario
-import Tarea from "./Tarea.jsx"; // Importamos el componente Tarea
-import "../styles/Todo.css"; // ¡Ahora importamos el CSS global!
+import { Formulario } from "./Formulario.jsx"; // Asegúrate que Formulario.jsx exporta con 'export const'
+import Tarea from "./Tarea.jsx"; // Asegúrate que Tarea.jsx exporta con 'export default'
+import "../styles/Todo.css"; // ¡Importamos el CSS estándar, no .module.css!
 
-/**
- * Componente principal Todo para gestionar la lista de tareas.
- * Maneja el estado de las tareas (agregar, actualizar, completar, eliminar).
- */
 export const Todo = () => {
-  // Estado para almacenar la lista de tareas
   const [tareas, setTareas] = useState([]);
 
-  /**
-   * Función para agregar una nueva tarea a la lista.
-   * @param {string} texto - El texto de la nueva tarea.
-   */
   const agregarTarea = (texto) => {
     const nuevaTarea = {
-      id: Date.now(), // Genera un ID único basado en la marca de tiempo
-      texto, // El texto de la tarea
-      completed: false, // Inicialmente la tarea no está completada
+      id: Date.now(),
+      texto,
+      completed: false,
     };
-    // Actualiza el estado de las tareas añadiendo la nueva tarea
-    setTareas((prevTareas) => [...prevTareas, nuevaTarea]);
+    setTareas([...tareas, nuevaTarea]);
   };
 
-  /**
-   * Función para actualizar el texto de una tarea existente.
-   * @param {number} id - El ID de la tarea a actualizar.
-   * @param {string} nuevoTexto - El nuevo texto para la tarea.
-   */
   const actualizarTarea = (id, nuevoTexto) => {
-    setTareas((prevTareas) =>
-      prevTareas.map((tarea) =>
-        tarea.id === id ? { ...tarea, texto: nuevoTexto } : tarea
-      )
+    const actualizadas = tareas.map((t) =>
+      t.id === id ? { ...t, texto: nuevoTexto } : t
     );
+    setTareas(actualizadas);
   };
 
-  /**
-   * Función para eliminar una tarea de la lista.
-   * @param {number} id - El ID de la tarea a eliminar.
-   */
   const eliminarTarea = (id) => {
-    setTareas((prevTareas) => prevTareas.filter((tarea) => tarea.id !== id));
+    const filtradas = tareas.filter((t) => t.id !== id);
+    setTareas(filtradas);
   };
 
-  /**
-   * Función para cambiar el estado de completado de una tarea.
-   * @param {number} id - El ID de la tarea a completar/descompletar.
-   */
   const completarTarea = (id) => {
-    setTareas((prevTareas) =>
-      prevTareas.map((tarea) =>
-        tarea.id === id ? { ...tarea, completed: !tarea.completed } : tarea
-      )
+    const actualizadas = tareas.map((t) =>
+      t.id === id ? { ...t, completed: !t.completed } : t
     );
+    setTareas(actualizadas);
   };
 
   return (
-    // Contenedor principal de la aplicación To-Do, usando la clase directamente
-    <div className="container">
-      {/* Componente Formulario para añadir nuevas tareas, le pasamos la función agregarTarea */}
+    <div>
       <Formulario agregarTarea={agregarTarea} />
 
-      {/* Contenedor de la lista de tareas */}
-      <div className="listaTareas">
-        {tareas.length === 0 ? (
-          <p className="noTareasMensaje">
-            No hay tareas pendientes. ¡Añade una!
-          </p>
-        ) : (
-          // Mapeamos el arreglo de tareas para renderizar cada Tarea individual
-          tareas.map((tarea) => (
-            <Tarea
-              key={tarea.id} // La clave única es importante para React
-              tarea={tarea}
-              onToggleComplete={completarTarea} // Pasamos la función completarTarea
-              onDelete={eliminarTarea} // Pasamos la función eliminarTarea
-              onUpdate={actualizarTarea} // Pasamos la función actualizarTarea
-            />
-          ))
-        )}
+      <hr />
+
+      {/* Lista de tareas */}
+      {/* ¡CAMBIO CLAVE AQUÍ! Usamos "container" directamente, sin 'styles.' */}
+      <div className="container">
+        {tareas.map((t) => (
+          <Tarea
+            key={t.id}
+            tarea={t}
+            onUpdate={actualizarTarea}
+            onDelete={eliminarTarea}
+            onToggleComplete={completarTarea}
+          />
+        ))}
       </div>
     </div>
   );

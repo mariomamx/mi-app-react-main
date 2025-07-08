@@ -3,7 +3,7 @@
 .tarea-item {
   display: flex;
   align-items: center;
-  justify-content: space-between; /* Espacio entre los elementos */
+  justify-content: space-between;
   background-color: #f9f9f9;
   border: 1px solid #e0e0e0;
   border-radius: 8px;
@@ -11,30 +11,32 @@
   margin-bottom: 10px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
   transition: all 0.3s ease;
+  width: 100%; /* Para que ocupe todo el ancho del .container */
+  box-sizing: border-box; /* Para incluir padding y borde en el width */
 }
 
 .tarea-item.completed {
-  background-color: #e6ffe6; /* Fondo más claro para tareas completadas */
-  border-color: #a3e6a3; /* Borde verde para completadas */
-  text-decoration: line-through; /* Tachado para tareas completadas */
-  color: #888888; /* Color de texto más tenue */
+  background-color: #e6ffe6;
+  border-color: #a3e6a3;
+  text-decoration: line-through;
+  color: #888888;
 }
 
 .tarea-checkbox {
   margin-right: 15px;
-  min-width: 20px; /* Asegura un ancho mínimo para el checkbox */
+  min-width: 20px;
   height: 20px;
   cursor: pointer;
-  accent-color: #28a745; /* Color del checkbox */
+  accent-color: #28a745;
 }
 
 .tarea-texto {
-  flex-grow: 1; /* Permite que el texto ocupe el espacio disponible */
+  flex-grow: 1;
   font-size: 1.1em;
   color: #333333;
-  word-break: break-word; /* Rompe palabras largas para evitar desbordamiento */
-  cursor: pointer; /* Indica que es editable */
-  padding: 5px 0; /* Pequeño padding para mejor clic */
+  word-break: break-word;
+  cursor: pointer;
+  padding: 5px 0;
 }
 
 .tarea-item.completed .tarea-texto {
@@ -52,8 +54,8 @@
 
 .tarea-acciones {
   display: flex;
-  gap: 8px; /* Espacio entre los botones */
-  margin-left: 15px; /* Espacio a la izquierda de los botones de acción */
+  gap: 8px;
+  margin-left: 15px;
 }
 
 .tarea-boton-eliminar,
@@ -70,7 +72,7 @@
 }
 
 .tarea-boton-eliminar {
-  background-color: #dc3545; /* Rojo para eliminar */
+  background-color: #dc3545;
 }
 
 .tarea-boton-eliminar:hover {
@@ -84,7 +86,7 @@
 }
 
 .tarea-boton-editar {
-  background-color: #007bff; /* Azul para editar */
+  background-color: #007bff;
 }
 
 .tarea-boton-editar:hover {
@@ -98,7 +100,7 @@
 }
 
 .tarea-boton-guardar {
-  background-color: #28a745; /* Verde para guardar */
+  background-color: #28a745;
 }
 
 .tarea-boton-guardar:hover {
@@ -112,7 +114,7 @@
 }
 
 .tarea-boton-cancelar {
-  background-color: #6c757d; /* Gris para cancelar */
+  background-color: #6c757d;
 }
 
 .tarea-boton-cancelar:hover {
@@ -123,4 +125,18 @@
 .tarea-boton-cancelar:active {
   background-color: #495057;
   transform: translateY(0);
+}
+
+/* La clase .card que tenías en Tarea.module.css de testReact-main */
+/* Es importante notar que Tarea.jsx en mi-app-react-main no usa esta clase directamente */
+/* Si la necesitas para otra cosa, puedes mantenerla, pero no afecta a 'tarea-item' */
+.card { 
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  width: 150px;
+  height:180px;
 }

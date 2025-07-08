@@ -1,0 +1,94 @@
+/* src/styles/NavBar.css */
+
+.contenedor {
+  width: 100%;
+  background-color: #1a1a2e;
+  padding: 1.2rem 2.5rem;
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem;
+  box-shadow: 0 6px 15px rgba(0, 255, 255, 0.2);
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+  box-sizing: border-box;
+  border-bottom: 2px solid rgba(0, 255, 255, 0.1);
+}
+
+.contenedor h1 {
+  color: #00f0ff;
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
+}
+
+.contenedor p {
+  color: #b0b0b0;
+  margin: 0;
+  font-size: 1rem;
+}
+
+.contenedor hr {
+  display: none;
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2.5rem;
+}
+
+.link {
+  color: #e0f7fa;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  padding: 10px 20px;
+  border-radius: 6px;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(0, 255, 255, 0.1);
+}
+
+.link:hover {
+  text-decoration: none;
+  background-color: rgba(0, 255, 255, 0.1);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 255, 255, 0.4);
+  color: #00f0ff;
+}
+
+.link:active {
+  transform: translateY(0);
+  background-color: rgba(0, 255, 255, 0.2);
+  box-shadow: 0 2px 8px rgba(0, 255, 255, 0.3);
+}
+
+@media (max-width: 768px) {
+  .contenedor {
+    flex-direction: column;
+    gap: 1.2rem;
+    padding: 1rem 1.5rem;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+
+  .contenedor h1 {
+    font-size: 1.5rem;
+  }
+
+  .links {
+    flex-direction: column;
+    gap: 0.8rem;
+    width: 100%;
+  }
+
+  .link {
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 1rem;
+    padding: 8px 15px;
+  }
+}

@@ -1,11 +1,117 @@
+:root {
+  --lila: #b57edc;
+  --blanco: #ffffff;
+  --negro: #000000;
+  --gris-claro: #f7f7f7;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--gris-claro);
+  font-family: "Segoe UI", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+}
+
 .error-container {
-  text-align: center;
-  padding: 2rem;
+  display: flex;
+  flex-direction: column; /* Apila elementos verticalmente */
+  width: 100%;
+  max-width: 900px; /* Limita el ancho */
+  padding: 1rem;
+  box-sizing: border-box; /* Asegura padding incluido en el width */
 }
-.error-container img {
-  width: 200px;
+
+/* Título "404 NOT FOUND" */
+.error-title {
+  font-size: 1.6rem; /* Tamaño grande para el 404 */
+  color: var(--negro);
+  margin-bottom: 4px; /* Espacio debajo del título */
+  text-align: center; /* Centrado por defecto en móviles */
 }
-.error-container button {
-  margin-top: 1rem;
-  padding: 0.5rem 1rem;
+/* Contenedor Flexbox para la imagen y el texto */
+.content-wrapper {
+  display: flex;
+  flex-direction: column-reverse; /* En móviles: Imagen arriba, texto abajo */
+  align-items: center; /* Centra elementos horizontalmente en móvil */
+  width: 100%;
+  gap: 30px; /* Espacio entre las secciones */
+}
+
+/* Sección que contiene el texto y el botón */
+.text-content {
+  flex: 1; /* Permite que ocupe espacio flexible */
+  width: 100%; /* Asegura que ocupe todo el ancho disponible en su columna/fila */
+}
+
+.text-content h1 {
+  font-size: 3.5rem;
+  margin-bottom: 15px;
+  color: var(--negro);
+  line-height: 1.2;
+}
+
+.text-content p {
+  font-size: 2rem;
+  margin-bottom: 25px;
+  color: var(--negro);
+  line-height: 1.5;
+}
+
+/* Sección que contiene la imagen */
+.image-content {
+  flex: 1; /* Permite que ocupe espacio flexible */
+  width: 100%; /* Ocupa todo el ancho disponible en su columna/fila */
+  max-width: 400px; /* Limita el tamaño máximo de la imagen */
+  display: flex; /* Para centrar la imagen si es más pequeña */
+  justify-content: center; /* Centra horizontalmente la imagen */
+  align-items: center; /* Centra verticalmente la imagen */
+}
+
+.image-content img {
+  max-width: 100%; /* La imagen no excederá el ancho de su contenedor */
+  height: auto; /* Mantiene la proporción */
+  border-radius: 2px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: block; /* Elimina espacio extra debajo de la imagen */
+}
+
+/* Estilo del botón (Link) */
+.btn-homepage {
+  display: inline-block;
+  margin-top: 5%;
+  padding: 10px 22px;
+  background: var(--negro); /* Botón negro */
+  color: var(--blanco);
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: background 0.3s ease;
+}
+
+.btn-homepage:hover {
+  background: #333;
+}
+/* Ajuste para desktop: 404 a la izquierda */
+@media (min-width: 768px) {
+  .error-title {
+    text-align: left; /* Alinea a la izquierda en desktop */
+  }
+}
+
+/* Media Query para Desktop: Imagen a la derecha, Texto a la izquierda */
+@media (min-width: 768px) {
+  .content-wrapper {
+    flex-direction: row-reverse; /* ¡IMAGEN A LA DERECHA, TEXTO A LA IZQUIERDA! */
+    align-items: flex-start; /* Alinea los elementos al inicio de la fila */
+    text-align: left; /* Alinea el texto a la izquierda en desktop */
+  }
 }

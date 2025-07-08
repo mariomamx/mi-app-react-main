@@ -1,49 +1,92 @@
-.product-card {
-  width: 280px;
-  background: white;
-  border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  padding: 20px;
+
+
+.product-card-wrapper {
+  background: var(--gris-claro);
   font-family: 'Segoe UI', sans-serif;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+
+.product-card {
+  width: 340px; /* Ancho similar a perfil-contenedor */
+  background: var(--blanco);
+  border: 14px solid; /* grosor del marco */
+  border-image: linear-gradient(to bottom, rgba(222, 219, 219, 0.7), rgba(0, 0, 0, 0.7)) 1;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
+  border-radius: 0px; /* Marco cuadrado, como perfil-contenedor */
+  padding: 30px 15px; /* Padding similar a perfil-contenedor */
+  font-family: 'Segoe UI', sans-serif;
+  text-align: left; /* Alineado a la izquierda, como perfil-contenedor */
 }
 
 .product-card img {
-  width: 100px;
-  height: auto;
-  margin-bottom: 10px;
+  width: 150px; /* Imagen más grande, similar a perfil-foto */
+  height: 150px; /* Mismo alto para hacerla cuadrada */
+  object-fit: cover; /* Recorta la imagen si no es cuadrada */
+  display: block; /* Para centrarla con margin auto */
+  margin: 0 auto 15px auto; /* Centrada, como perfil-foto */
 }
 
 .product-card h2 {
-  font-size: 1.1rem;
-  margin: 10px 0 5px;
+  font-size: 1.6rem; /* Tamaño de fuente similar a perfil-nombre */
+  font-weight: bold;
+  margin: 10px 0 5px; /* Espaciado ajustado */
+  color: #333; /* Color de texto similar */
+  text-align: left; /* Aseguramos alineación a la izquierda */
 }
 
-.product-card .label {
-  font-size: 0.75rem;
-  color: #888;
-  margin-bottom: 10px;
+.product-card .label { /* Si esta clase es para una "etiqueta" pequeña bajo el título */
+  font-size: 1.2rem;
+  color: black;
   display: block;
-  font-style: italic;
+  font-family: 'Segoe UI', sans-serif;
+  text-align: left; /* Alineamos a la izquierda */
 }
 
-.product-card p {
+.product-card p { /* Para descripciones y otros textos */
+  font-size: 1rem; /* Tamaño de fuente similar a descripcion */
+  color: #333; /* Color de texto similar */
+  margin: 1px 0;
+  line-height: 1.4; /* Espaciado de línea */
+  text-align: left; /* Alineamos a la izquierda */
+}
+
+/* Si tienes un párrafo específico para el "valor" */
+.product-card .valor { 
+  font-size: 1.2rem;
+  color: #333;
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+/* Contenedor de botones, para que se muestren lado a lado */
+.product-card .product-buttons { /* Le doy un nombre diferente a 'botones' para evitar conflictos */
+  display: flex;
+  justify-content: center; /* Centra los botones dentro del contenedor */
+  gap: 15px; /* Espacio entre los botones */
+  margin-top: 20px;
+}
+
+/* Estilos de los botones del producto */
+.product-card .btn-product { /* Clase específica para los botones del producto */
+  padding: 5px 10px; /* Padding similar a btn */
   font-size: 0.9rem;
-  color: #444;
-  margin: 5px 0;
-}
-
-.product-card button {
-  margin-top: 10px;
-  background-color: #27ae60;
-  color: white;
-  border: none;
-  padding: 8px 12px;
-  border-radius: 6px;
+  font-weight: bold;
+  text-decoration: none; /* Asegura que no haya subrayado si es un <Link> */
+  border: 2px solid var(--negro); /* Borde negro como btn */
+  background-color: var(--blanco); /* Fondo blanco como btn */
+  color: var(--negro); /* Texto negro como btn */
+  border-radius: 0px; /* Bordes redondeados para el botón */
   cursor: pointer;
-  transition: background 0.3s ease;
+  transition: all 0.3s ease;
 }
 
-.product-card button:hover {
-  background-color: #219653;
+.product-card .btn-product:hover {
+  background-color: var(--negro); /* Fondo negro al pasar el ratón */
+  color: var(--blanco); /* Texto blanco al pasar el ratón */
 }

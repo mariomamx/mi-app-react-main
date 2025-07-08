@@ -1,60 +1,123 @@
-.profile-card {
-  width: 300px;
-  border: 2px solid #ccc;
-  border-radius: 12px;
-  padding: 20px;
+/* src/components/ProfileCard/ProfileCard.css */
+
+:root {
+  --lila: #b57edc;
+  --blanco: #ffffff;
+  --negro: #000000;
+  --gris-claro: #f7f7f7; /* Añadí esta variable para el color de fondo */
+}
+
+/* Restablecimiento básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/*
+  Nota: Los estilos para `body` y `html` normalmente van en un archivo CSS global (como `App.css` o `index.css`).
+  Sin embargo, para asegurarnos de que el componente se vea centrado como en tu diseño original,
+  mantendremos las propiedades de `display: flex`, `justify-content`, `align-items` y `min-height`
+  en el contenedor del componente si no las tienes en un CSS global.
+*/
+.profile-card-wrapper { /* Clase envolvente para el componente completo */
+  background: var(--gris-claro);
+  font-family: "Segoe UI", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Asegura que ocupe al menos la altura de la ventana */
+  width: 100%; /* Ocupa todo el ancho disponible */
+  box-sizing: border-box; /* Asegura que padding no aumente el tamaño total */
+}
+
+
+.profile-card { /* Este es el .perfil-contenedor original */
+  width: 320px;
+  background: var(--blanco);
+  border: 8px solid var(--lila);
+  border-radius: 15px;
+  padding: 30px 20px;
   text-align: center;
-  font-family: Arial, sans-serif;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  background-color: #fff;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
 
-.profile-card .avatar {
-  width: 100px;
-  height: 100px;
+.avatar { /* Este es el .perfil-foto original */
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
+  border: 4px solid var(--lila);
   object-fit: cover;
-  margin-bottom: 10px;
-}
-
-.profile-card h3 {
-  margin: 10px 0 5px;
-  color: #4b0082;
-}
-
-.profile-card .stars {
-  color: #9b59b6;
-  font-size: 1.2rem;
-  margin-bottom: 10px;
-}
-
-.profile-card p {
-  font-size: 0.9rem;
-  color: #444;
   margin-bottom: 15px;
 }
 
-.profile-card .buttons {
+.profile-name { /* Este es el .perfil-nombre original */
+  color: var(--lila);
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+/* Estrellas calificables */
+.rating {
   display: flex;
   justify-content: center;
-  gap: 10px;
+  margin-bottom: 10px;
 }
 
-.profile-card .read,
-.profile-card .contact {
-  padding: 8px 12px;
-  border: none;
-  border-radius: 6px;
+.star {
+  font-size: 1.5rem;
   cursor: pointer;
+  color: #ccc;
+  transition: color 0.3s;
+}
+
+.star.active {
+  color: var(--lila);
+}
+
+#selected-rating { /* Este ID quizás se maneje mejor con estado en React */
+  font-weight: bold;
+  color: var(--lila);
+}
+
+.descripcion {
+  color: var(--negro);
+  font-size: 1rem;
+  margin: 15px 0;
+  line-height: 1.5;
+}
+
+.botones {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.btn {
+  padding: 10px 18px;
   font-size: 0.9rem;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 5px;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
 }
 
-.profile-card .read {
-  background-color: #e0e0e0;
-  color: #333;
+.btn-lila {
+  background-color: var(--lila);
+  color: var(--blanco);
 }
 
-.profile-card .contact {
-  background-color: #9b59b6;
-  color: white;
+.btn-lila:hover {
+  background-color: #a369c7;
+}
+
+.btn-blanco {
+  background-color: var(--blanco);
+  color: var(--lila);
+  border: 2px solid var(--lila);
+}
+
+.btn-blanco:hover {
+  background-color: #f3f3f3;
 }

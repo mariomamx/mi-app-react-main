@@ -1,27 +1,48 @@
-/* src/styles/Todo.module.css */
+/* src/styles/Todo.css */
 
 .container {
+  /* Contenedor principal de la aplicación To-Do */
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding: 20px;
-  max-width: 600px; /* Ancho máximo para el contenedor de la aplicación To-Do */
-  margin: 30px auto; /* Centrar horizontalmente */
-  background-color: #f0f2f5; /* Fondo suave para toda la sección To-Do */
-  border-radius: 15px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-  font-family: "Inter", sans-serif;
+  align-items: center; /* Centra los elementos horizontalmente */
+  
+  padding: 30px; /* Mayor padding para más espacio interno */
+  max-width: 650px; /* Un poco más de ancho para un diseño más abierto */
+  margin: 40px auto; /* Centrar y más margen superior/inferior */
+  
+  background-color: #FFFFFF; /* Fondo blanco puro */
+  border-radius: 12px; /* Bordes ligeramente redondeados */
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08); /* Sombra más pronunciada pero difuminada para un efecto flotante */
+  
+  font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif; /* Fuentes modernas y legibles */
+  color: #333333; /* Color de texto principal gris oscuro */
+  line-height: 1.6; /* Mejor interlineado para legibilidad */
+  
+  gap: 25px; /* Espacio entre el formulario y la lista de tareas */
+  border: none; /* Eliminar el borde rojo, ya no es necesario con la sombra */
 }
 
+/* Estilos para la lista de tareas dentro del contenedor */
 .listaTareas {
-  width: 100%;
-  margin-top: 20px;
+  width: 100%; /* Asegura que la lista ocupe todo el ancho del contenedor */
+  margin-top: 0; /* No necesitamos margen superior si ya hay 'gap' en el contenedor */
 }
 
+/* Mensaje cuando no hay tareas */
 .noTareasMensaje {
   text-align: center;
-  color: #666;
+  color: #777777; /* Gris más suave para el mensaje */
   font-style: italic;
-  margin-top: 20px;
-  font-size: 1.1em;
+  margin-top: 15px; /* Ajuste de margen */
+  font-size: 1em; /* Ajuste de tamaño de fuente */
 }
+
+/* Aquí puedes agregar más estilos para los componentes Formulario y Tarea
+   si quieres que el contenedor de tareas también las muestre con un diseño específico.
+   Por ejemplo, si Tarea.css ya no es suficiente: */
+/*
+.tarea-item {
+  width: 100%;
+  margin-bottom: 10px;
+}
+*/
